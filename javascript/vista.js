@@ -20,17 +20,17 @@ class Vista {
     il.appendChild(br);
     ul.appendChild(il);
   }
-  async borrar() {
+  borrar() {
     const ul = document.getElementById("ul");
     for (let i = 0; i < ul.childElementCount; i++) {
       ul.removeChild(ul.lastChild);
     }
   }
   async obtenerGanador() {
-    let ganador = await JSON.parse(localStorage.getItem("ganador"));
-    await this.mostrarTitulo(ganador.nombre);
-    await this.mostrarGanador(ganador);
-    document.getElementById("main").src = data.message;
+    let ganador = JSON.parse(localStorage.getItem("ganador"));
+    this.mostrarTitulo(ganador.nombre);
+    ganador = await this.servicio.mostrarGanador(ganador);
+    document.getElementById("main").src = ganador.message;
     return ganador;
   }
   async votar() {
