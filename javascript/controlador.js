@@ -11,6 +11,8 @@ class Controlador {
         perro.voto += vote;
       }
     });
+    await this.vista.pasarMiUrl();
+    this.modelo.notificar();
     return perrosN;
   }
   ordenacion(perrosN) {

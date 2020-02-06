@@ -24,3 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
     vista.borrar();
   });
 });
+
+const bastaDePerros = perros => {
+  vista.borrar();
+  for (let i = 0; i < 5; i++) {
+    vista.mostrarTop(perros[perros.length - (i + 1)]);
+  }
+  if (perros[perros.length - 1].voto >= 5) {
+    vista.obtenerGanador().then(data => console.log(data));
+  }
+};
+
+modelo.suscribirse(bastaDePerros);

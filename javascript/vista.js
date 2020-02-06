@@ -21,10 +21,7 @@ class Vista {
     ul.appendChild(il);
   }
   borrar() {
-    const ul = document.getElementById("ul");
-    for (let i = 0; i < ul.childElementCount; i++) {
-      ul.removeChild(ul.lastChild);
-    }
+    document.getElementById("ul").innerHTML = `<ul></ul>`;
   }
   async obtenerGanador() {
     let ganador = JSON.parse(localStorage.getItem("ganador"));
@@ -35,7 +32,6 @@ class Vista {
   }
   async votar() {
     const nombre = await document.getElementById("titulo").textContent;
-    this.pasarMiUrl();
     return nombre;
   }
 }
